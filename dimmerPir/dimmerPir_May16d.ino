@@ -35,9 +35,6 @@ const char* off_cmd = "OFF";
 
 /**************************** FOR OTA **************************************************/
 #define SENSORNAME "kitchenLight"
-//#define OTApassword "$hare1paS5" // change this to whatever password you want to use when you upload OTA Pass on sensornode1: YouPassword
-//int OTAport = 8266;
-
 /**************************** PIN DEFINITIONS ********************************************/
 #define outPin 0
 #define pirPin 2
@@ -155,8 +152,6 @@ bool processJson(char* message) {
   
  return true;
 }
-
-
 
 /********************************** START SEND STATE*****************************************/
 void sendState() {

@@ -41,9 +41,9 @@ const char * days[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "
 const char * months[] = {"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"} ;
 const char * ampm[] = {"AM", "PM"} ;
 
-#define mqtt_server "192.168.1.50"
-#define mqtt_user "toi" 
-#define mqtt_password "Share1pas5"
+#define mqtt_server "mqtt_server"
+#define mqtt_user "mqtt_user" 
+#define mqtt_password "mqtt_password"
 #define mqtt_port 1883
 /*_________________________  MQTT TOPICS ________________________*/
 
@@ -56,7 +56,7 @@ const char* off_cmd = "OFF";
 /*_________________________  FOR OTA ________________________*/
 
 #define SENSORNAME "Controller"
-#define OTApassword "$hare1paS5" // change this to whatever password you want to use when you upload OTA
+#define OTApassword "OTA_password" // change this to whatever password you want to use when you upload OTA
 int OTAport = 8266;
 
 /*_________________________  PIN DEFINITIONS  ________________________*/
@@ -88,8 +88,6 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 /*_________________________  SETUP LOOP  ________________________*/
-//software_Reset;
-//displayClock;
 
 void setup() {
   // put your setup code here, to run once:
@@ -108,8 +106,6 @@ void setup() {
   Serial.print("\tOTA passed");
   delay(2000);
     
-
-  
   for (int i = 0; i < pinCounts; i++) {
     pinMode(inputPins[i], INPUT);
   }; 
@@ -190,19 +186,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   if (!processJson(message)) {
     return;
   }
-//
-//  if (stateOn) {
-//    // Update lights
-//    realRed = map(red, 0, 255, 0, brightness);
-//    realGreen = map(green, 0, 255, 0, brightness);
-//    realBlue = map(blue, 0, 255, 0, brightness);
-//  }
-//  else {
-//    realRed = 0;
-//    realGreen = 0;
-//    realBlue = 0;
-//  }
-
   sendState();
 }
 
@@ -217,21 +200,8 @@ bool processJson(char* message) {
     Serial.println("parseObject() failed");
     return false;
   }
-
-//  if (root.containsKey("state")) {
-//    if (strcmp(root["state"], on_cmd) == 0) {
-//      stateOn = true;
-//    }
-//    else if (strcmp(root["state"], off_cmd) == 0) {
-//      stateOn = false;
-//    }
-//  }
-//  if (root.containsKey("brightness")) {
-//    brightness = root["brightness"];
-//    }
   return true;
 }
-
 /*_________________________  START SEND STATE  ________________________*/
 
 void sendState() {
@@ -248,8 +218,6 @@ void sendState() {
     JsonObject& device = root.createNestedObject(device_name);
     device["state"] = deviceStatus[i];
     int val = deviceSet[i];
-    //map(value, fromLow, fromHigh, toLow, toHigh)
-//    val = map(val, 200, 1024, 0, 1024)
     device["intensity"] = deviceSet[i];
     }
 
@@ -467,4 +435,3 @@ bool isTimePublish(){
   }
   return false;
 }
-
