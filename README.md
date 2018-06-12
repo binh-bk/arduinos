@@ -27,4 +27,9 @@ a simple NTP clock with a terminal to publish analog reading to MQTT server, can
   <img src="https://github.com/binh-bk/arduinos/blob/master/powerMeter_v2.1/powerMeter_v2.1a.jpg"/>
 </p>
 
-### to be added
+### Simple Terminal with NTP Clock and Publish Control Value
+<p align="center">
+<img src="https://github.com/binh-bk/arduinos/blob/master/simpleControlTerminal/simpleTerminal.jpg"/>
+</p>
+
+### to be added...
