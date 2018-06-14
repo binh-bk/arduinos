@@ -9,7 +9,10 @@ tools for LED evaluation: based v2 power meter, added TLS2561 luminosity sensor 
 ### 4. simpleControlTerminal:
 a simple NTP clock with a terminal to publish analog reading to MQTT server, can publish to 4 seperated channels using WeMOS Mini-Lite ESP8266, SSD1306 OLED
 ### 5. dimmerPir:
-control 4x3W LED by motiion sensor or  with MQTT with Json format, intensity is parsed out by the controller, or it can be turned on by a switch, using ESP8266 -01
+control 4x3W LED by motiion sensor or  with MQTT with Json format, intensity is parsed out by the controller, or it can be turned on by a switch, using ESP8266 -01. The current is limited by a MOSFET, a transitor and 1ohm (3W), allows about 600 mA through LEDS as the max output.
+
+### 6. 10LEDs Dimmer
+Boost 5V input to 26V using MT3608 and turn on 10LEDs (0.5W each, 8mm superbright). The brightness is controlled by 8266 esp01 using JSON message from MQTT server, or a manual push button. The current runs through the LEDs is limited by MOSFET and a transitor with 4ohm (about 150mA max).
 
 # Schematics
 
@@ -33,4 +36,12 @@ control 4x3W LED by motiion sensor or  with MQTT with Json format, intensity is 
 <img src="https://github.com/binh-bk/arduinos/blob/master/simpleControlTerminal/simpleTerminal.jpg"/>
 </p>
 
+### 5. PIR and LED dimmer
+<p align="center">
+<img src="https://github.com/binh-bk/arduinos/blob/master/dimmerPir/pir_LED.jpg"/>
+</p>
+### 6. 10 LEDs and 5V supply
+<p align="center">
+<img src="https://github.com/binh-bk/arduinos/blob/master/ledDimmer_MQTT/ledDimmer.jpg"/>
+</p>
 ### to be added...
