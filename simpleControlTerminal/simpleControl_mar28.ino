@@ -213,14 +213,12 @@ void sendState() {
   root["sensor"] = SENSORNAME;
   
   for (int i = 0; i < pinCounts; i++) {
-    
     String device_name = deviceName[i];
     JsonObject& device = root.createNestedObject(device_name);
     device["state"] = deviceStatus[i];
     int val = deviceSet[i];
     device["intensity"] = deviceSet[i];
     }
-
 
   char buffer[root.measureLength() + 1];
   root.printTo(buffer, sizeof(buffer));
@@ -241,7 +239,6 @@ void reconnect() {
     if (client.connect(SENSORNAME, mqtt_user, mqtt_password)) {
       Serial.println("connected");
       client.subscribe(light_set_topic);
-//      setColor(0, 0, 0);
       sendState();
     } else {
       Serial.print("failed, rc=");
@@ -252,11 +249,9 @@ void reconnect() {
     }
   }
 }
-
 /*_________________________ MAIN LOOP  ________________________*/
 
 void loop() {
-
   ArduinoOTA.handle();
   if (!client.connected()) {
     reconnect();
@@ -294,14 +289,12 @@ void loop() {
 //  Serial.print(s);
   Serial.print("\twillPublish:");
   Serial.println(willPublish);
-  delay(1000);
+  delay(100);
 }
 
 /*_________________________ CHECK INPUTS   ________________________*/
 
 int checkInputs(){
-  
-
   for (int i = 0; i < pinCounts; i++) {
     int pinRead = digitalRead(inputPins[i]);
     
@@ -354,7 +347,6 @@ void displayClock(){
     delay(100);
   }
    //proceed to get the data
-   
     date = "";  // clear the variables
     t = "";
 
@@ -407,7 +399,6 @@ void displayClock(){
     display.display();
     delay(100);
 }
-
 /*_________________________ BOUND READING   ________________________*/
 
 bool isNewInput(int _old, int _new){
@@ -416,7 +407,6 @@ bool isNewInput(int _old, int _new){
       }
   return false;
 }
-
 /*_________________________ RESET  ________________________*/
 
 void software_Reset() // Restarts program from beginning but does not reset the peripherals and registers
