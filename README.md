@@ -43,7 +43,7 @@ Boost 5V input to 26V using MT3608 and turn on 10LEDs (0.5W each, 8mm superbrigh
 
 ### 6. 10 LEDs and 5V supply
 <p align="center">
-<img src="https://github.com/binh-bk/arduinos/blob/master/ledDimmer_MQTT/ledDimmer.jpg"/>
+<img src="https://github.com/binh-bk/arduinos/blob/master/ledDimmer_MQTT/flashlight_ESP8266.jpg"/>
 </p>
 
 ### to be added...
