@@ -71,7 +71,6 @@ int tem6000Value;
 int samplingTimes = 5;
 unsigned long preSampling = 0;
 
-
 int samplingInterval = 600; //60 seconds
 char message_buff[100];
 int calibrationTime = 0;
@@ -344,9 +343,6 @@ void sendState() {
 
   JsonObject& root = jsonBuffer.createObject();
 
-//  root["state"] = (stateOn) ? on_cmd : off_cmd;
-
-//  root["brightness"] = brightness;
   root["uptime"] = uptime;
   root["sensor"] = SENSORNAME;
   root["ldr"] = photoValue;
@@ -399,7 +395,6 @@ void software_Reset() // Restarts program from beginning but does not reset the 
   ESP.restart();
 }
 
-
 /*_____________________SAMPLING INTERVAL_______________________*/
 bool neededSample(int intervalSampling){
   unsigned long currentTime = millis();
@@ -408,8 +403,8 @@ bool neededSample(int intervalSampling){
     preSampling = currentTime;
     return true;
   } else return false;
-  
 }
+
 /*_____________________START CHECK SENSOR_______________________*/
 bool checkBoundSensor(float newValue, float prevValue, float maxDiff) {
   return newValue < prevValue - maxDiff || newValue > prevValue + maxDiff;

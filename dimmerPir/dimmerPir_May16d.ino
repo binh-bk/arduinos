@@ -3,8 +3,7 @@ forked from: bruhautomation multisensor on github.ino
 - using mqtt and JSON format
       - PubSubClient
       - ArduinoJSON
-    
-
+      
 Changes by Binh Nguyen from bruhautomation file, updated on May 07, 2018:
 - trimed down setColor function.  Only analogWrite 
 - trimed down OTA update
