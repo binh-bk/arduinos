@@ -1,6 +1,6 @@
 /*
  * CONTROL BOARD wiht 4 inputs, and an analog rotator for intensity
- * Binh Nguyen, Mar 25, 2018
+ * Binh Nguyen, last update July 3, 2017
 
 */
 
@@ -19,8 +19,12 @@
 #include <Time.h>
 #include <TimeLib.h>
 #include <Timezone.h>
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+SSD1306  display(0x3c, D1, D2); //0x3d for the Adafruit 1.3" OLED, 0x3C being the usual address of the OLED **C** for my model
 /*_________________________  NTP CLOCKS ________________________*/
-// Define NTP properties
 #define NTP_OFFSET   60 * 60      // In seconds
 #define NTP_INTERVAL 60 * 1000    // In miliseconds
 #define NTP_ADDRESS  "asia.pool.ntp.org"  // change this to whatever pool is closest (see ntp.org)
@@ -29,9 +33,9 @@ WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, NTP_ADDRESS, NTP_OFFSET, NTP_INTERVAL);
 
 // Create a display object
-SSD1306  display(0x3c, D1, D2); //0x3d for the Adafruit 1.3" OLED, 0x3C being the usual address of the OLED **C** for my model
 
-/*_________________________  WIFI and MQTT INFORMATION (CHANGE THESE FOR YOUR SETUP) ________________________*/
+
+/*_________________________  WIFIA ________________________*/
 
 const char* ssid = "wifi_SSID";   // insert your own ssid
 const char* password = "wifi_password";              // and password
@@ -60,7 +64,6 @@ const char* off_cmd = "OFF";
 int OTAport = 8266;
 
 /*_________________________  PIN DEFINITIONS  ________________________*/
-
 #define input D4
 #define analogIn A0
 int inputPins[] = {D5, D6, D7, D8};
@@ -81,11 +84,6 @@ char message_buff[100];
 const int BUFFER_SIZE = 300;
 bool stateOn = false;
 bool willPublish = false;
-
-/*_________________________  SENSOR DEFINITIONS  ________________________*/
-
-WiFiClient espClient;
-PubSubClient client(espClient);
 
 /*_________________________  SETUP LOOP  ________________________*/
 
