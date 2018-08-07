@@ -37,9 +37,6 @@ const char* off_cmd = "OFF";
 /**************************** PIN DEFINITIONS ********************************************/
 #define outPin 0
 #define pirPin 2
-int ledPin = 3;
-//#define outPin D7
-//#define pirPin D5
 
 /**************************** SENSOR DEFINITIONS *******************************************/
 char message_buff[300];
@@ -63,8 +60,6 @@ void setup() {
   flash(ledPin, 5, 100);
   delay(1000);
   pinMode(outPin, OUTPUT);
-  pinMode(ledPin, FUNCTION_3);  //to use this pin as RX pin, change to FUNCTION_3
-  pinMode(ledPin, OUTPUT);
   pinMode(pirPin, INPUT);
   Serial.begin(115200);
   delay(10);
@@ -218,7 +213,6 @@ void loop() {
         if (pirRead == 1) {
           i= 0;
         };
-        flashPattern(i, ledPin);
         delay(1000);
        }       
        lightState = 0;
@@ -236,15 +230,6 @@ void loop() {
 }
 
 /*_________________flash pattern________________________________*/
-
-void flashPattern(int i, int ledPin){
-  if (i=0) {
-    flash(ledPin, 2, 100);
-  };
-  if (i= (onRetain-2)) {
-    flash(ledPin, 3, 100);
-  }
-}
 void flash(int ledPin, int times, int interval){
   for (int j=0; j < times; j++){
     digitalWrite(ledPin, HIGH);
