@@ -59,10 +59,7 @@ PubSubClient client(espClient);
 
 /********************************** START SETUP*****************************************/
 void setup() {
-
   Serial.begin(115200);
-
- //-------------------START SENSORS--------------------------------
   flash(ledPin, 5, 100);
   delay(1000);
   pinMode(outPin, OUTPUT);
@@ -75,7 +72,6 @@ void setup() {
   Serial.println("Updated on: May 16, 2018");
 
   setup_wifi();
-
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
   Serial.println("Ready");
@@ -99,7 +95,6 @@ void setup_wifi() {
     delay(500);
     Serial.print(".");
   }
-
   Serial.println("");
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
@@ -148,7 +143,6 @@ bool processJson(char* message) {
     lightState = 1;
     intensity = 900;    //any values less than 1024 would work
   }
-  
  return true;
 }
 
@@ -168,7 +162,6 @@ void sendState() {
   String sPayload = "";
   root.printTo(sPayload);
   char* cPayload = &sPayload[0u];
-
   client.publish(light_state_topic, buffer, true);
   Serial.println("\nPushed MQTT: " + String(buffer));
 }
@@ -192,8 +185,6 @@ void reconnect() {
     }
   }
 }
-
-/********************************** START CHECK SENSOR **********************************/
 
 /********************************** START MAIN LOOP***************************************/
 void loop() {
@@ -224,14 +215,10 @@ void loop() {
     if (lightState == 1){
        for (int i=0; i < onRetain; i++){
         pirRead = digitalRead(pirPin);
-//        Serial.print("\tpirRead2: ");
-//        Serial.print(pirRead);
         if (pirRead == 1) {
           i= 0;
         };
         flashPattern(i, ledPin);
-//        Serial.print("\ti: ");
-//        Serial.print(i);
         delay(1000);
        }       
        lightState = 0;
@@ -284,9 +271,9 @@ bool isStateChange(int lightState, int  pirRead){
     return true;
   }
 }
-/****reset***/
-void software_Reset() // Restarts program from beginning but does not reset the peripherals and registers
-{
+
+/*_________________SOFT RESET________________________________*/
+void software_Reset() {
 Serial.print("\tWill try reset");
 delay(2000);
 while (!client.connected()){
@@ -295,4 +282,3 @@ while (!client.connected()){
   ESP.reset(); 
   }; 
 }
-
