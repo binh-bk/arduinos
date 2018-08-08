@@ -52,7 +52,7 @@ A full set up using PIR sensor to detect infrared movement, publish the status t
 ### 7. MQTT, PIR sensor, LEDs, SQLite with a web server
 A basic concept:
 <p align="center">
-<img src="https://github.com/binh-bk/arduinos/blob/master/ledDimmer_MQTT/flashlight_ESP8266.jpg"/>
+<img src="https://github.com/binh-bk/arduinos/blob/master/FlaskandPlotly/pir_led_concept3.png"/>
 </p>
 
 ### to be added...
