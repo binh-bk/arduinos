@@ -7,7 +7,7 @@ power meter using INA219 and 18B20 temperature probe, Nokia 5110 screen, and log
 tools for LED evaluation: based v2 power meter, added TLS2561 luminosity sensor and photocell, log data via Serial by python script
 
 ### 4. simpleControlTerminal:
-a simple NTP clock with a terminal to publish analog reading to MQTT server, can publish to 4 seperated channels using WeMOS Mini-Lite ESP8266, SSD1306 OLED. A more details on making a subscriber-publisher with MQTT server http://www.instructables.com/id/From-Flashlight-to-Motion-Sensor-With-ESP8266-and-/
+a simple NTP clock with a terminal to publish analog reading to MQTT server, can publish to 4 seperated channels using WeMOS Mini-Lite ESP8266, SSD1306 OLED. A more details on making a subscriber-publisher with MQTT server on <a href='http://www.instructables.com/id/From-Flashlight-to-Motion-Sensor-With-ESP8266-and-/'> instructables.com </a>
 
 ### 5. dimmerPir:
 control 4x3W LED by motiion sensor or  with MQTT with Json format, intensity is parsed out by the controller, or it can be turned on by a switch, using ESP8266 -01. The current is limited by a MOSFET, a transitor and 1ohm (3W), allows about 600 mA through LEDS as the max output. LEDs is automatically turned on with PIR sensor or with publish message from MQTT server
@@ -15,7 +15,7 @@ control 4x3W LED by motiion sensor or  with MQTT with Json format, intensity is 
 ### 6. 8 LEDs Dimmer
 Boost 5V input to 26V using MT3608 and turn on 10LEDs (0.5W each, 8mm superbright). The brightness is controlled by 8266 esp01 using JSON message from MQTT server, or a manual push button. The current runs through the LEDs is limited by MOSFET and a transitor with 4ohm (about 150mA max).
 ### 7. MQTT, PIR sensor, LEDs, SQLite with a web server
-A full set up using PIR sensor to detect infrared movement, publish the status to a topic by MQTT broker. Several type of clients (subsribers) can listen in such as LED light, collect data by a SQLite database.  The tutorial is posted here: https://www.instructables.com/id/PIR-With-EPS8266-and-MQTT
+A full set up using PIR sensor to detect infrared movement, publish the status to a topic by MQTT broker. Several type of clients (subsribers) can listen in such as LED light, collect data by a SQLite database.  The tutorial is posted <a href=' https://www.instructables.com/id/PIR-With-EPS8266-and-MQTT/'> instructables.com </a>
 
 # Schematics
 
