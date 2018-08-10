@@ -15,7 +15,7 @@ control 4x3W LED by motiion sensor or  with MQTT with Json format, intensity is 
 ### 6. 8 LEDs Dimmer
 Boost 5V input to 26V using MT3608 and turn on 10LEDs (0.5W each, 8mm superbright). The brightness is controlled by 8266 esp01 using JSON message from MQTT server, or a manual push button. The current runs through the LEDs is limited by MOSFET and a transitor with 4ohm (about 150mA max).
 ### 7. MQTT, PIR sensor, LEDs, SQLite with a web server
-A full set up using PIR sensor to detect infrared movement, publish the status to a topic by MQTT broker. Several type of clients (subsribers) can listen in such as LED light, collect data by a SQLite database.  The tutorial is posted <a href=' https://www.instructables.com/id/PIR-With-EPS8266-and-MQTT/'> instructables.com </a>
+A full set up using PIR sensor to detect infrared movement, publish the status to a topic by MQTT broker. Several type of clients (subsribers) can listen in such as LED light, collect data by a SQLite database.  The tutorial is posted <a href='https://www.instructables.com/id/PIR-With-EPS8266-and-MQTT/'> instructables.com </a>
 
 # Schematics
 
