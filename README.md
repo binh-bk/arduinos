@@ -21,38 +21,38 @@ A full set up using PIR sensor to detect infrared movement, publish the status t
 
 ### 1. powerMeter_v1
 <p align="center">
-  <img src="https://github.com/binh-bk/arduinos/blob/master/poweMeter_v1/powerMeter_1.jpg"/>
+  <img src="poweMeter_v1/powerMeter_1.jpg"/>
 </p>
 
 ### 2. powerMeter_v2:  
 <p align="center">
-  <img src="https://github.com/binh-bk/arduinos/blob/master/powerMeter_v2/powerMeter_v2.jpg"/>
+  <img src="powerMeter_v2/powerMeter_v2.jpg"/>
 </p>
 
 ### 3. powerMeter_v2.1:
 <p align="center">
-  <img src="https://github.com/binh-bk/arduinos/blob/master/powerMeter_v2.1/powerMeter_v2.1a.jpg"/>
+  <img src="powerMeter_v2.1/powerMeter_v2.1a.jpg"/>
 </p>
 
 ### 4. Simple Terminal with NTP Clock and Publish Control Value
 <p align="center">
-<img src="https://github.com/binh-bk/arduinos/blob/master/simpleControlTerminal/simpleTerminal.jpg"/>
+<img src="simpleControlTerminal/simpleTerminal.jpg"/>
 </p>
 
 ### 5. PIR and LED dimmer
 <p align="center">
-<img src="https://github.com/binh-bk/arduinos/blob/master/dimmerPir/pir_LED.jpg"/>
+<img src="dimmerPir/pir_LED.jpg"/>
 </p>
 
 ### 6. 8 LEDs and 5V supply
 <p align="center">
-<img src="https://github.com/binh-bk/arduinos/blob/master/ledDimmer_MQTT/flashlight_ESP8266.jpg"/>
+<img src="ledDimmer_MQTT/flashlight_ESP8266.jpg"/>
 </p>
 
 ### 7. MQTT, PIR sensor, LEDs, SQLite with a web server
 A basic concept:
 <p align="center">
-<img src="https://github.com/binh-bk/arduinos/blob/master/FlaskandPlotly/pir_led_concept3.png"/>
+<img src="FlaskandPlotly/pir_led_concept3.png"/>
 </p>
 
 ### to be added...
